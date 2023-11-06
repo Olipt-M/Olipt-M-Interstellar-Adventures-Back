@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ships', function (Blueprint $table) {
+        Schema::create('planets_journey_types', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('planet_id');
             $table->unsignedBigInteger('journey_type_id');
-            $table->string('name', 100)->unique();
-            $table->string('picture');
-            $table->string('coeff_price');
             $table->timestamps();
 
+            $table->foreign('planet_id')->references('id')->on('planets')->onDelete('cascade');
             $table->foreign('journey_type_id')->references('id')->on('journey_types')->onDelete('cascade');
         });
     }
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ships');
+        Schema::dropIfExists('planets_journey_types');
     }
 };
