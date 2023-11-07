@@ -8,7 +8,7 @@ VALUES
 ('volcanique'), ('continental'), ('équatorial'), ('arctique'), ('tempéré'), ('tempêtueux'), ('artificiel');
 
 
-/* Table planets */
+/* Table planets : */
 
 INSERT INTO planets (climate_id, name, picture, system, distance_from_earth, capital, date_colonization, nb_inhabitants)
 VALUES 
@@ -45,7 +45,7 @@ VALUES
 ('Croisière', 2000),    
 ('Colonisation', 25000);
 
-/* Table planets_journey_types */
+/* Table planets_journey_types : */
 
 INSERT INTO planets_journey_types (planet_id, journey_type_id)
 VALUES 
@@ -59,12 +59,12 @@ VALUES
 
 INSERT INTO ships (journey_type_id, name, picture, coeff_price) 
 VALUES 
-(1, 'Voyager Infini', 'ship-commercial-eco.webp', 0.5),
-(1, 'Horizon Astral', 'ship-commercial-standard.jpg', 0.5),
-(1, "Nébuleuse d'Argent", 'ship-commercial-premium.jpg', 0.5),
-(2, 'Galion Galactique', 'ship-croisiere-eco.jpg', 0.5),
-(2, 'Astrolabe Stellaire', 'ship-croisiere-standard.jpg', 0.5),
-(2, 'Nova Luminosa', 'ship-croisiere-premium.jpg', 0.5),
-(3, 'Phoenix Céleste', 'ship-colonization-eco.webp', 0.5),
-(3, 'Sérénité Galactique', 'ship-colonization-standard.jpg', 0.5),
-(3, 'Vélocité Céleste', 'ship-colonization-premium.jpg', 0.5),
+(1, 'Voyager Infini', 'ship-commercial-eco.webp', 1),
+(1, 'Horizon Astral', 'ship-commercial-standard.jpg', 2),
+(1, 'Nébuleuse Argentée', 'ship-commercial-premium.jpg', 4),
+(2, 'Galion Galactique', 'ship-croisiere-eco.jpg', 1),
+(2, 'Astrolabe Stellaire', 'ship-croisiere-standard.jpg', 1.5),
+(2, 'Nova Luminosa', 'ship-croisiere-premium.jpg', 2),
+(3, 'Phoenix Céleste', 'ship-colonization-eco.webp', 1),
+(3, 'Sérénité Galactique', 'ship-colonization-standard.jpg', 1.5),
+(3, 'Vélocité Céleste', 'ship-colonization-premium.jpg', 2);
