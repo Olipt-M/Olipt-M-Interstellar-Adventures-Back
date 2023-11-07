@@ -13,6 +13,17 @@ class Planet extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'climate_id',
+        'picture',
+        'system',
+        'distance_from_earth',
+        'capital',
+        'date_colonization',
+        'nb_inhabitants',
+    ];
+
     public function climate() : HasOne {
         return $this->hasOne(Climate::class);
     }
