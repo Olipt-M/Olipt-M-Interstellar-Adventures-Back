@@ -63,3 +63,7 @@ Route::prefix('journeys')->group(function () {
     Route::put('/{id}', [JourneyController::class, 'update']); // Update un voyage
 });
 
+Route::prefix('/auth')->group(function() {
+    Route::post('/register', [AuthController::class, 'register']);
+    Route::post('/login', [AuthController::class, 'login']);
+});
