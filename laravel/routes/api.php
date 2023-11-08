@@ -23,27 +23,38 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/planets', [PlanetController::class, 'index']); // Afficher les planètes
-Route::post('/planets', [PlanetController::class, 'store']); // Créer une planète
-Route::delete('/planets/{id}', [PlanetController::class, 'destroy']); // Delete une planète
-Route::put('/planets/{id}', [PlanetController::class, 'update']); // Update une planète
+Route::prefix('planets')->group(function () {
+    Route::get('/', [PlanetController::class, 'index']); // Afficher les planètes
+    Route::post('/', [PlanetController::class, 'store']); // Créer une planète
+    Route::delete('/{id}', [PlanetController::class, 'destroy']); // Delete une planète
+    Route::put('/{id}', [PlanetController::class, 'update']); // Update une planète
+});
 
-Route::get('/climates', [ClimateController::class, 'index']); // Afficher les climats
-Route::post('/climates', [ClimateController::class, 'store']); // Créer un climat
-Route::delete('/climates/{id}', [ClimateController::class, 'destroy']); // Delete un climat
-Route::put('/climates/{id}', [ClimateController::class, 'update']); // Update un climat
+Route::prefix('climates')->group(function () {
+    Route::get('/', [ClimateController::class, 'index']); // Afficher les climats
+    Route::post('/', [ClimateController::class, 'store']); // Créer un climat
+    Route::delete('/{id}', [ClimateController::class, 'destroy']); // Delete un climat
+    Route::put('/{id}', [ClimateController::class, 'update']); // Update un climat
+});
 
-Route::get('/journey-types', [JourneyTypeController::class, 'index']); // Afficher les types de voyage
-Route::post('/journey-types', [JourneyTypeController::class, 'store']); // Créer un type de voyage
-Route::delete('/journey-types/{id}', [JourneyTypeController::class, 'destroy']); // Delete un type de voyage
-Route::put('/journey-types/{id}', [JourneyTypeController::class, 'update']); // Update un type de voyage
+Route::prefix('journey-types')->group(function () {
+    Route::get('/', [JourneyTypeController::class, 'index']); // Afficher les types de voyage
+    Route::post('/', [JourneyTypeController::class, 'store']); // Créer un type de voyage
+    Route::delete('/{id}', [JourneyTypeController::class, 'destroy']); // Delete un type de voyage
+    Route::put('/{id}', [JourneyTypeController::class, 'update']); // Update un type de voyage
+});
 
-Route::get('/ships', [ShipController::class, 'index']); // Afficher les vaisseaux
-Route::post('/ships', [ShipController::class, 'store']); // Créer un vaisseau
-Route::delete('/ships/{id}', [ShipController::class, 'destroy']); // Delete un vaisseau
-Route::put('/ships/{id}', [ShipController::class, 'update']); // Update un vaisseau
+Route::prefix('ships')->group(function () {
+    Route::get('/', [ShipController::class, 'index']); // Afficher les vaisseaux
+    Route::post('/', [ShipController::class, 'store']); // Créer un vaisseau
+    Route::delete('/{id}', [ShipController::class, 'destroy']); // Delete un vaisseau
+    Route::put('/{id}', [ShipController::class, 'update']); // Update un vaisseau
+});
 
-Route::get('/journeys', [JourneyController::class, 'index']); // Afficher les voyages
-Route::post('/journeys', [JourneyController::class, 'store']); // Créer un voyage
-Route::delete('/journeys/{id}', [JourneyController::class, 'destroy']); // Delete un voyage
-Route::put('/journeys/{id}', [JourneyController::class, 'update']); // Update un voyage
+Route::prefix('journeys')->group(function () {
+    Route::get('/', [JourneyController::class, 'index']); // Afficher les voyages
+    Route::post('/', [JourneyController::class, 'store']); // Créer un voyage
+    Route::delete('/{id}', [JourneyController::class, 'destroy']); // Delete un voyage
+    Route::put('/{id}', [JourneyController::class, 'update']); // Update un voyage
+});
+
