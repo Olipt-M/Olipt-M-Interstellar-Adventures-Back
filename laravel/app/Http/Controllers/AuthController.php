@@ -19,6 +19,13 @@ class AuthController extends Controller
         return response()->json($user);
     }
 
+    public function registerForm(Request $request) {
+        $registerForm = new User($request->all());
+        $registerForm->save();
+
+        return response()->json($registerForm);
+    }
+
     public function login(Request $request) {
         $credentials = $request->only('email', 'password');
 
