@@ -28,6 +28,7 @@ Route::prefix('planets')->group(function () {
     Route::post('/', [PlanetController::class, 'store']); // Créer une planète
     Route::delete('/{id}', [PlanetController::class, 'destroy']); // Delete une planète
     Route::put('/{id}', [PlanetController::class, 'update']); // Update une planète
+    Route::get('/{id}', [PlanetController::class, 'show']); // Afficher une planète
 });
 
 Route::prefix('climates')->group(function () {

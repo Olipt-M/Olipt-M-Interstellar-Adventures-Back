@@ -41,7 +41,8 @@ class PlanetController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $planet = Planet::findOrFail($id);
+        return response()->json($planet);
     }
 
     /**
