@@ -13,6 +13,13 @@ class Ship extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'journey_type_id',
+        'picture',
+        'coeff_price'
+    ];
+
     public function journeyType() : BelongsTo {
         return $this->belongsTo(JourneyType::class);
     }

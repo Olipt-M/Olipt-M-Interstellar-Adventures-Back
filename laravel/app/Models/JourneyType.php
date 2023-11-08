@@ -13,6 +13,11 @@ class JourneyType extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'base_price'
+    ];
+
     public function ship() : HasMany {
         return $this->hasMany(Ship::class);
     }

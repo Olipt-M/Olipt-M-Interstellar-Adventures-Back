@@ -11,6 +11,10 @@ class Climate extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+    ];
+
     public function planet(): BelongsTo {
         return $this->belongsTo(Planet::class);
     }

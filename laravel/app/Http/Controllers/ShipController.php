@@ -4,17 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use App\Models\Climate;
+use App\Models\Ship;
 
-class ClimateController extends Controller
+class ShipController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $climates = Climate::all();
-        return response()->json($climates);
+        $ships = Ship::all();
+        return response()->json($ships);
     }
 
     /**
@@ -30,10 +30,10 @@ class ClimateController extends Controller
      */
     public function store(Request $request)
     {
-        $climate = new Climate($request->all());
-        $climate->save();
+        $ship = new Ship($request->all());
+        $ship->save();
 
-        return response()->json($climate);
+        return response()->json($ship);
     }
 
     /**
@@ -55,20 +55,20 @@ class ClimateController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id, Climate $climate)
+    public function update(Request $request, string $id)
     {
-        $climate = Climate::findOrFail($id);
-        $climate->update($request->all());
-        return response()->json(['message' => 'Climat mis à jour avec succès']);
+        $ship = Ship::findOrFail($id);
+        $ship->update($request->all());
+        return response()->json(['message' => 'Vaisseau mis à jour avec succès']);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id, Climate $climat)
+    public function destroy(string $id, Ship $ship)
     {
-        $climate = Climate::findOrFail($id);
-        $climate->delete();
-        return response()->json(['message' => 'Climat supprimé avec succès']);
+        $ship = Ship::findOrFail($id);
+        $ship->delete();
+        return response()->json(['message' => 'Vaisseau supprimé avec succès']);
     }
 }

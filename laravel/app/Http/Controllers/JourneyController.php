@@ -3,18 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use App\Models\Climate;
+use Iluminate\Support\Str;
+use App\Models\Journey;
 
-class ClimateController extends Controller
+
+class JourneyController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $climates = Climate::all();
-        return response()->json($climates);
+        $journeys = Journey::all();
+        return response()->json($journeys);
     }
 
     /**
@@ -30,10 +31,10 @@ class ClimateController extends Controller
      */
     public function store(Request $request)
     {
-        $climate = new Climate($request->all());
-        $climate->save();
+        $journey = new Journey($request->all());
+        $journey->save();
 
-        return response()->json($climate);
+        return response()->json($journey);
     }
 
     /**
@@ -55,20 +56,20 @@ class ClimateController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id, Climate $climate)
+    public function update(Request $request, string $id, Journey $journey)
     {
-        $climate = Climate::findOrFail($id);
-        $climate->update($request->all());
-        return response()->json(['message' => 'Climat mis à jour avec succès']);
+        $journey = Journey::findOrFail($id);
+        $journey->update($request->all());
+        return response()->json(['message' => 'Voyage mis à jour avec succès']);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id, Climate $climat)
+    public function destroy(string $id, Journey $journey)
     {
-        $climate = Climate::findOrFail($id);
-        $climate->delete();
-        return response()->json(['message' => 'Climat supprimé avec succès']);
+        $journey = Journey::findOrFail($id);
+        $journey->delete();
+        return response()->json(['message' => 'Voyage supprimé avec succès']);
     }
 }

@@ -15,6 +15,15 @@ class Journey extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'ship_id',
+        'planet_id',
+        'journey_type_id',
+        'departure_date',
+        'return_date',
+        'price'
+    ];
+
     public function journeyType() : HasOne {
         return $this->hasOne(JourneyType::class);
     }
