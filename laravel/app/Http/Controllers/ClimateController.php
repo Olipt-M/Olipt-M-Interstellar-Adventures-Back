@@ -41,7 +41,8 @@ class ClimateController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $climate = Climate::findOrFail($id);
+        return response()->json($climate);
     }
 
     /**

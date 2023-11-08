@@ -36,6 +36,7 @@ Route::prefix('climates')->group(function () {
     Route::post('/', [ClimateController::class, 'store']); // Créer un climat
     Route::delete('/{id}', [ClimateController::class, 'destroy']); // Delete un climat
     Route::put('/{id}', [ClimateController::class, 'update']); // Update un climat
+    Route::get('/{id}', [ClimateController::class, 'show']); // Afficher un climat
 });
 
 Route::prefix('journey-types')->group(function () {
