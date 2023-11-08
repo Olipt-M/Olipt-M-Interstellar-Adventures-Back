@@ -41,7 +41,8 @@ class ShipController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $ship = Ship::findOrFail($id);
+        return response()->json($ship);
     }
 
     /**

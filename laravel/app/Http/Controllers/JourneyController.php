@@ -42,7 +42,8 @@ class JourneyController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $journey = Journey::finrOrFail($id);
+        return response()->json($journey);
     }
 
     /**
