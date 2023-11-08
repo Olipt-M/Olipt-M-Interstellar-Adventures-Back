@@ -67,5 +67,7 @@ Route::prefix('journeys')->group(function () {
 Route::prefix('/auth')->group(function() {
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/login', [AuthController::class, 'login']);
+    Route::post('/me', [AuthController::class, 'me'])->middleware('auth:sanctum');
+
     Route::get('/register', [AuthController::class, 'registerForm']);
 });
