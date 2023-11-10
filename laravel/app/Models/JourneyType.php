@@ -28,7 +28,7 @@ class JourneyType extends Model
         return $this->belongsTo(Journey::class);
     }
 
-    public function planet() : BelongsToMany {
-        return $this->belongsToMany(Planet::class);
+    public function planets() : BelongsToMany {
+        return $this->belongsToMany(Planet::class, 'planets_journey_types');
     }
 }

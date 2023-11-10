@@ -15,6 +15,11 @@ class PlanetController extends Controller
     public function index()
     {
         $planets = Planet::all();
+        foreach ($planets as $planet) {
+            $planet->climate = Climate::findOrFail($planet->climate_id);
+            $planet->journeyTypes = $planet->journeyTypes()->get();
+        }
+
         return response()->json($planets);
     }
 
@@ -44,7 +49,7 @@ class PlanetController extends Controller
     {
         $planet = Planet::findOrFail($id);
         $planet->climate = Climate::findOrFail($planet->climate_id);
-        $planet->journeyTypes = $planet->journeyType()->get();
+        $planet->journeyTypes = $planet->journeyTypes()->get();
 
         return response()->json($planet);
     }
