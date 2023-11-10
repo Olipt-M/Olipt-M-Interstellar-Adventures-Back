@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Planet;
+use App\Models\Climate;
 
 class PlanetController extends Controller
 {
@@ -42,6 +43,9 @@ class PlanetController extends Controller
     public function show(string $id)
     {
         $planet = Planet::findOrFail($id);
+        $planet->climate = Climate::findOrFail($planet->climate_id);
+        $planet->journeyTypes = $planet->journeyType()->get();
+
         return response()->json($planet);
     }
 

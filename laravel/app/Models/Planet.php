@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use App\Models\Climate;
 use App\Models\Journey;
+use App\Models\JourneyType;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Planet extends Model
 {
@@ -30,5 +32,9 @@ class Planet extends Model
 
     public function journey() : BelongsTo {
         return $this->belongsTo(Journey::class);
+    }
+
+    public function journeyType() : BelongsToMany {
+        return $this->belongsToMany(JourneyType::class);
     }
 }

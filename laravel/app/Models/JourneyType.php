@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Models\Ship;
 use App\Models\Journey;
+use App\Models\Planet;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class JourneyType extends Model
 {
@@ -24,5 +26,9 @@ class JourneyType extends Model
 
     public function journey() : BelongsTo {
         return $this->belongsTo(Journey::class);
+    }
+
+    public function planet() : BelongsToMany {
+        return $this->belongsToMany(Planet::class);
     }
 }
