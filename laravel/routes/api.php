@@ -66,8 +66,9 @@ Route::prefix('journeys')->group(function () {
 
 Route::prefix('/auth')->group(function() {
     Route::post('/register', [AuthController::class, 'register']);
-    Route::post('/login', [AuthController::class, 'login']);
-    Route::post('/me', [AuthController::class, 'me'])->middleware('auth:sanctum');
+    Route::post('/login', [AuthController::class, 'login'])->name('login');
+    Route::post('/me', [AuthController::class, 'me'])->middleware('auth:sanctum'); // Check si l'utilisateur est connecté pour accéder au compte
+    Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum')->name('logout'); // Déconnexion de l'utilisateur (si connecté)
 
-    Route::get('/register', [AuthController::class, 'registerForm']);
+    Route::delete('/user-delete/{id}', [AuthController::class, 'destroy']);
 });
