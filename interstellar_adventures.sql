@@ -15,26 +15,26 @@ VALUES
 (2,'Andromeda', 'andromeda.jpg', 'Nébuleuse de la Tête de cheval', '1,2 années-lumières', 'Eos', 2004, 2300000),
 (3, 'Atlantia', 'atlantia.jpg', 'Epsilon Eridani', '1800 années-lumières', 'Thessia', 1998, 20000000),
 (12, 'Vénus', 'venus.jpg', 'Système solaire', '41,40 millions de km', 'Gilette', 2045, 4000000),
-(7, 'Nova Prime', 'nova_prime.jpg', 'Nébuleuse du Phoenix', '0,74 année-lumière', 'Fénix', 2009, 1450000),
+(7, 'Nova Prime', 'nova-prime.jpg', 'Nébuleuse du Phoenix', '0,74 année-lumière', 'Fénix', 2009, 1450000),
 (11, 'Verdantix', 'verdantix.jpg', 'Gliese 581', '20.3 années-lumières', 'Verdantixville', 2311, 800000),
-(8, 'Mars', 'mars.jpg', 'Système solaire', '78,34 millions de km', 'Nozomi', 1984, 1690000000),
+(8, 'Mars', 'mars.png', 'Système solaire', '78,34 millions de km', 'Nozomi', 1984, 1690000000),
 (4, 'Zenithar', 'zenithar.jpg', 'Nébuleuse du Griffon', '726 années-lumières', 'Nirvana', 1999, 1600000),
 (5, 'Lyra', 'lyra.jpg', 'Constellation de la Lyre', '14 années-lumières', 'Lyrakil', 2100, 234000),
 (1, 'Aria', 'aria.jpg', 'Étoile d''Éridan', '1600 années-lumières', 'Ratigan', 2304, 455000),
 (13, 'Illium', 'illium.jpg', 'Planète Errante', '15,8 années-lumières', 'Novus', 2007, 240000000),
-(10, 'Ombria', 'ombria.jpg', 'Nébuleuse de l''Éclipse', '20 années-lumières', 'Umbra', 2001, 2400000),
-(13, 'Centaurus Prime', 'centaurus_prime.jpg', 'Constellation du Centaure', '1,8 années-lumières', '-', 2007, 3500000),
+(10, 'Ombria', 'ombria.jpeg', 'Nébuleuse de l''Éclipse', '20 années-lumières', 'Umbra', 2001, 2400000),
+(13, 'Centaurus Prime', 'centaurus-prime.jpg', 'Constellation du Centaure', '1,8 années-lumières', '-', 2007, 3500000),
 (3, 'Eolys', 'eolys.jpg', 'Voie des Arcanes', '17 années-lumières', '-', NULL, NULL),
 (9, 'Astrum', 'astrum.jpg', 'Constellation de la Balance', '1900 années-lumières', '-', NULL, NULL),
 (11, 'Aetherium', 'aetherium.jpg', 'Nébuleuse de la Licorne', '15 années-lumières', 'Etherea', 2012, 2100000),
 (3, 'Hydros', 'hydros.jpg', 'Eta Cassiopeiae', '150 années-lumières', 'Aquatica', 2020, 11480),
 (11, 'Terravale', 'terravale.jpg', 'Beta Hydri', '106 années-lumières', 'Valence', 2011, 2000000),
 (3, 'Luminara', 'luminara.jpg', 'Étoile d''Aurora', '180 années-lumières', '-', NULL, NULL),
-(2, 'Rannoch', 'rannoch.jpg', 'Nébuleuse du Léviathan', '1200 années-lumières', '-', NULL, NULL),
+(2, 'Rannoch', 'rannoch.jpeg', 'Nébuleuse du Léviathan', '1200 années-lumières', '-', NULL, NULL),
 (5, 'Moshae', 'moshae.jpg', 'Lalande 21185', '8 années-lumières', 'Hôi An', 2009, 223000),
 (12, 'Pyrrha', 'pyrrha.jpg', 'Alpha Centauri', '4 années-lumières', '-', NULL, NULL),
 (3, 'Serenica', 'serenica.jpg', 'Epsilon Eridani', '10 années-lumières', 'Serenity', 2019, 46300),
-(1, 'Novéria', 'noveria.jpg', 'Wolf 1061', '14 années-lumières', 'Station de recherche', 2015, 9851);
+(1, 'Novéria', 'noveria.jpeg', 'Wolf 1061', '14 années-lumières', 'Station de recherche', 2015, 9851);
 
 
 /* Table journey_types : */
