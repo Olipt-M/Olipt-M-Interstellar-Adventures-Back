@@ -12,9 +12,9 @@ class PlanetController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(int $page = 1, int $limit = 5)
     {
-        $planets = Planet::all();
+        $planets = Planet::all()->skip(($page - 1) * $limit)->take($limit);
         foreach ($planets as $planet) {
             $planet->climate = Climate::findOrFail($planet->climate_id);
             $planet->journeyTypes = $planet->journeyTypes()->get();
