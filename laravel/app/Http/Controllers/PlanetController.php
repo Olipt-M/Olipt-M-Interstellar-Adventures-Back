@@ -20,7 +20,16 @@ class PlanetController extends Controller
             $planet->journeyTypes = $planet->journeyTypes()->get();
         }
 
-        return response()->json($planets);
+        $planetslist = array(
+            "data" => $planets->values()->all(),
+            "meta" => [
+                "total" => Planet::all()->count(),
+                "current_page" => $page,
+                "max_results_per_page" => $limit
+            ]
+        );
+
+        return response()->json($planetslist);
     }
 
     /**
