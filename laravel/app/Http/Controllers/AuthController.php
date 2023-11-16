@@ -44,9 +44,9 @@ class AuthController extends Controller
     return response()->json(['message' => 'Mot de passe ou email non valide'], 401);
     }
 
-    if (Auth::attempt(['email' => $email, 'password' => $password], $remember)) {
-        return response()->json(['message' => 'Connexion reussie']);
-    }
+    // if (Auth::attempt(['email' => $email, 'password' => $password], $remember)) {
+    //     return response()->json(['message' => 'Connexion reussie']);
+    // }
 
     $user = User::where('email', $request['email'])->firstOrFail();
 
