@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    // Partie AUTHENTIFICATION :
+    // Partie SignUp :
 
     public function register(Request $request) {
     $validatedData = $request->validate([
