@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('planet_id');
             $table->unsignedBigInteger('journey_type_id');
             $table->date('departure_date', 100);
-            $table->date('return_date', 100);
+            $table->date('return_date', 100)->nullable();
             $table->float('price', 100);
             $table->timestamps();
 
