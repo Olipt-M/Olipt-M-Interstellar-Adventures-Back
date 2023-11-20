@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RequestCreateUser;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
@@ -12,20 +13,10 @@ class AuthController extends Controller
 {
     // Partie SignUp :
 
-    public function register(Request $request) {
-    $validatedData = $request->validate([
-        'firstname' => 'required|string|max:255',
-        'lastname' => 'required|string|max:255',
-        'email' => 'required|string|email|max:255|unique:users',
-        'password' => 'required|string|min:8',
-        ]);
+    public function register(RequestCreateUser $request) {
 
-    $user = User::create([
-        'firstname' => $validatedData['firstname'],
-        'lastname' => $validatedData['lastname'],
-        'email' => $validatedData['email'],
-        'password' => Hash::make($validatedData['password']),
-        ]);
+    $user = new User($request -> all());
+    $user->save();
 
     $token = $user->createToken('auth_token')->plainTextToken;
     return response()->json([
@@ -35,6 +26,7 @@ class AuthController extends Controller
         'access_token' => $token,
         'token_type' => 'Bearer',
         ]);
+
     }
 
     // Partie CONNEXION :
