@@ -29,11 +29,12 @@ class AuthController extends Controller
 
     $token = $user->createToken('auth_token')->plainTextToken;
     return response()->json([
+        'firstname' => $user['firstname'],
+        'lastname' => $user['lastname'],
+        'email' => $user['email'],
         'access_token' => $token,
         'token_type' => 'Bearer',
         ]);
-
-    // return redirect()->route('auth/login');
     }
 
     // Partie CONNEXION :
@@ -53,6 +54,9 @@ class AuthController extends Controller
     $token = $user->createToken('auth_token')->plainTextToken;
 
     return response()->json([
+        'firstname' => $user['firstname'],
+        'lastname' => $user['lastname'],
+        'email' => $user['email'],
         'access_token' => $token,
         'token_type' => 'Bearer',
         ]);
