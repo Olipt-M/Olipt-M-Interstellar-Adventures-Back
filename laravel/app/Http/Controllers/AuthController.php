@@ -58,20 +58,6 @@ class AuthController extends Controller
         return $request->user();
     }
 
-    // Partie DECONNEXION :
-
-    // public function logout(Request $request){
-    //     $request->user()->tokens()->delete();
-    //     return response()->json(['message' => 'Deconnexion reussie']);
-    // }
-
-    // public function logout(Request $request)
-    // {
-    //     Auth::logout();
-    //     $request->session()->invalidate();
-    //     $request->session()->regenerateToken();
-    //     return redirect()->route('login');
-    // }
 
     public function destroy (string $id, User $user) {
         $user = User::findOrFail($id);
