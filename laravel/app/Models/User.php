@@ -49,6 +49,6 @@ class User extends Authenticatable
     ];
 
     public function journeys(): BelongsToMany {
-        return $this->belongsToMany(Journey::class);
+        return $this->belongsToMany(Journey::class, 'users_journeys');
     }
 }

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Iluminate\Support\Str;
 use App\Models\Journey;
+use App\Models\Ship;
+use App\Models\Planet;
+use App\Models\JourneyType;
 
 
 class JourneyController extends Controller
@@ -15,6 +18,14 @@ class JourneyController extends Controller
     public function index()
     {
         $journeys = Journey::all();
+        foreach ($journeys as $journey) {
+            $journey->ship = Ship::findOrFail($journey->ship_id);
+            $journey->planet = Planet::findOrFail($journey->planet_id);
+            $journey->journeyType = JourneyType::findOrFail($journey->journey_type_id);
+        }
+
+        // $journey->users = $journey->users()->get();
+
         return response()->json($journeys);
     }
 
