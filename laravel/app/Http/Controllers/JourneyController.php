@@ -58,8 +58,15 @@ class JourneyController extends Controller
      */
     public function store(Request $request)
     {
-        $journey = new Journey($request->all());
+        // dump($request->except(['userEmail']));
+        //dump($request);
+        $journey = new Journey($request->except(['userEmail']));
         $journey->save();
+
+        $userEmail = $request->input('userEmail');
+        $userId = User::where('email', $userEmail)->first()->id;
+
+        $journey->users()->attach($userId);
 
         return response()->json($journey);
     }
