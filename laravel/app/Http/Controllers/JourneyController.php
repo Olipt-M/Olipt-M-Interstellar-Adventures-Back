@@ -7,6 +7,7 @@ use Iluminate\Support\Str;
 use App\Models\Journey;
 use App\Models\Ship;
 use App\Models\Planet;
+use App\Models\User;
 use App\Models\JourneyType;
 
 
@@ -15,19 +16,34 @@ class JourneyController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $journeys = Journey::all();
-        foreach ($journeys as $journey) {
+            foreach ($journeys as $journey) {
             $journey->ship = Ship::findOrFail($journey->ship_id);
             $journey->planet = Planet::findOrFail($journey->planet_id);
             $journey->journeyType = JourneyType::findOrFail($journey->journey_type_id);
         }
 
-        // $journey->users = $journey->users()->get();
+            $journey->users = $journey->users()->get();
 
         return response()->json($journeys);
     }
+
+    // Voir les voyages d'un utilisateur :
+    public function userJourneys($id)
+    {
+        $user = User::findOrFail($id);
+        $journeys = $user->journeys()->get();
+        foreach($journeys as $journey) {
+            $journey->ship = Ship::findOrFail($journey->ship_id);
+            $journey->planet = Planet::findOrFail($journey->planet_id);
+            $journey->journeyType = JourneyType::findOrFail($journey->journey_type_id);
+        }
+
+        return response()->json($journeys);
+    }
+
 
     /**
      * Show the form for creating a new resource.

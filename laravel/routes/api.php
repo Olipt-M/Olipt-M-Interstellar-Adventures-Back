@@ -66,11 +66,13 @@ Route::prefix('journeys')->group(function () {
     Route::put('/{id}', [JourneyController::class, 'update']); // Update un voyage
 });
 
+Route::get('/journeys/user/{id}', [JourneyController::class, 'userJourneys']);
+
 Route::prefix('/auth')->group(function() {
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/me', [AuthController::class, 'me'])->middleware('auth:sanctum'); // Check si l'utilisateur est connecté pour accéder au compte
-
-
     Route::delete('/user-delete/{id}', [AuthController::class, 'destroy']);
 });
+
+
