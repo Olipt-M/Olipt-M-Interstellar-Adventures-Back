@@ -64,7 +64,7 @@ class JourneyController extends Controller
         $journey->save();
 
         $userEmail = $request->input('userEmail');
-        $userId = User::where('email', $userEmail)->first()->id;
+        $userId = User::where('email', 'like', $userEmail)->first()->id;
 
         $journey->users()->attach($userId);
 
@@ -76,7 +76,7 @@ class JourneyController extends Controller
      */
     public function show(string $id)
     {
-        $journey = Journey::finrOrFail($id);
+        $journey = Journey::findOrFail($id);
         return response()->json($journey);
     }
 
