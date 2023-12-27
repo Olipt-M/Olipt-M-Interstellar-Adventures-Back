@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JourneyType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Ship;
@@ -14,6 +15,9 @@ class ShipController extends Controller
     public function index()
     {
         $ships = Ship::all();
+        foreach ($ships as $ship) {
+            $ship->journeyType = JourneyType::findOrFail($ship->journey_type_id);
+        }
         return response()->json($ships);
     }
 
