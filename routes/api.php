@@ -25,9 +25,10 @@ use App\Http\Controllers\AuthController;
 // });
 
 Route::prefix('planets')->group(function () {
-    Route::get('/{page}/{limit}', [PlanetController::class, 'index'])
-        ->where('page', '[0-9]+')
-        ->where('limit', '[0-9]+'); // Afficher les planètes
+    Route::get('/', [PlanetController::class, 'index']); // Afficher les planètes
+    // Route::get('/{page}/{limit}', [PlanetController::class, 'index'])
+    //     ->where('page', '[0-9]+')
+    //     ->where('limit', '[0-9]+'); // Afficher les planètes
     Route::get('/{id}', [PlanetController::class, 'show']); // Afficher une planète
     Route::post('/', [PlanetController::class, 'store']); // Créer une planète
     Route::delete('/{id}', [PlanetController::class, 'destroy']); // Delete une planète
